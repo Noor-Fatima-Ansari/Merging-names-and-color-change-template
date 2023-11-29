@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Layout
@@ -58,7 +59,21 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        // **********BIRTHDAY APP***********
 
+        var b=findViewById<Button>(R.id.b)
+        var text=findViewById<TextView>(R.id.text)
+
+        b.setOnClickListener {
+       var name =   (text.getText()).toString()  //-> getText() give char sequence and we need String
+         //   var name=text.editableText.toString()   // This method also give us input String
+           // **set intent and send name to another activity**
+         var intent=Intent(this,Birthday::class.java)
+            intent.putExtra(Birthday.keyValue, name)
+            startActivity(intent)
+
+
+        }
 
 
 
